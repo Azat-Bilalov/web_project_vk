@@ -1,0 +1,51 @@
+{# Статические файлы #}
+{% load static %}
+
+<nav class="navbar navbar-light bg-info shadow m-md-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'questions:index' %}">
+      <img src="{% static 'images/logo.svg' %}" alt="" width="50" height="42" class="d-inline-block">
+      <span class="d-lg-none d-md-inline d-none"><b>Q&A</b></span>
+      <span class="d-lg-inline d-none"><b>Question&Answer</b></span>
+    </a>
+    <form class="d-md-flex d-none pt-3">
+      <div class="input-group">
+        <input class="form-control align-text-center" type="search" placeholder=" Искать" aria-label="Search">
+        <button class="btn btn-outline-primary" id="basic-addon1">🔎</button>
+      </div>
+    </form>
+    <a href="{% url 'questions:new_question' %}" class="btn btn-primary">Задать вопрос</a>
+    {% if authorized %}
+        <div class="row align-items-center gx-1">
+            <div class="col">
+                <img src="{% static 'images/test_avatar_1.jpg' %}" class="question-card-sm-img float-end" alt="">
+            </div>
+            <div class="col text-center" >
+                {% if True %} {# 4 =< Никнейм <= 10 #}
+                    <p class="text-secondary m-0"><b>Vanv1k</b></p>
+                {% endif %}
+                <div class="row gx-1" style="min-width: 4rem">
+                    <div class="col">
+                        <a class="link link-dark" href="{% url 'questions:settings' %}">
+                            <i class="fa-solid fa-gear fs-5"></i>
+                        </a>
+                    </div>
+                    <div class="col align-items-center">
+                        <a class="link link-dark" href="#">
+                            <i class="fa-solid fa-right-from-bracket fs-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <form class="pt-3">
+            <a href="{% url 'questions:sign_in' %}" class="btn btn-outline-primary d-none d-md-inline">⎆ Вход</a>
+            <a href="{% url 'questions:sign_up' %}" class="btn btn-outline-secondary d-none d-md-inline">✔ Регистрация</a>
+            <a href="#" class="btn btn-outline-primary d-inline d-md-none">
+                <i class="fa-sharp fa-solid fa-right-to-bracket hover-icon"></i>
+            </a>
+        </form>
+    {% endif %}
+  </div>
+</nav>

@@ -1,0 +1,47 @@
+{# Статические файлы #}
+{% load static %}
+
+<div class="row gx-2 m-4">
+    <div class="col-md-3 col-lg-2 text-center d-none d-md-block">
+        <img src="{% static 'images/test_avatar_1.jpg' %}" class="question-card-img d-md-block d-none" alt="...">
+        <p class="text-secondary m-0 d-block"><b>Vanv1k</b></p>
+        <div class="btn-group btn-group-sm ">
+            <button type="button" class="btn btn-outline-success">
+                <i class="fa-regular fa-thumbs-up"></i> 0
+            </button>
+            <button type="button" class="btn btn-outline-danger">
+                <i class="fa-regular fa-thumbs-down"></i> 0
+            </button>
+        </div>
+    </div>
+    <div class="col">
+        <div class="badge rounded-pill bg-success text-light d-md-none">
+            <img src="{% static 'images/test_avatar_1.jpg' %}" class="question-card-sm-img" alt="">
+            <p class="d-inline">Vanv1k</p>
+        </div>
+        <h1 class="fs-3 text-secondary"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, tempore?</b></h1>
+        <p class="" style="text-align: justify;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet blanditiis consequuntur cum doloribus eveniet iste, nemo nihil, nostrum obcaecati quidem quisquam repellendus voluptatum. Adipisci architecto consequatur distinctio dolore, error excepturi illum in incidunt minima molestiae non odio omnis optio, quam quod, repudiandae saepe vitae. A dolore doloribus exercitationem, facere fuga inventore, iure non pariatur quasi qui totam vitae. Animi consectetur corporis distinctio, ea eligendi enim et quas quisquam sunt suscipit unde voluptatum. Et exercitationem id ipsum laudantium nihil quasi. Excepturi laboriosam quidem sed tenetur voluptate voluptates, voluptatum. Consequatur dignissimos distinctio explicabo facilis impedit iure officiis, pariatur ratione ullam voluptates.
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <p class=""><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div id="tags">
+                    <p class="d-inline text-secondary">Теги:</p>
+                    <a class="link-info d-inline" href="#">C++</a>
+                    <a class="link-info d-inline" href="#">python</a>
+                    <a class="link-info d-inline" href="#">C</a>
+                </div>
+            </div>
+            <div class="btn-group btn-group-sm mr-0 d-md-none">
+                <button type="button" class="btn btn-outline-success">
+                    <i class="fa-regular fa-thumbs-up"></i> 0
+                </button>
+                <button type="button" class="btn btn-outline-danger">
+                    <i class="fa-regular fa-thumbs-down"></i> 0
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="d-md-none">

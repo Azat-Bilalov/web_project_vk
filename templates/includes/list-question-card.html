@@ -1,0 +1,59 @@
+{# Статические файлы #}
+{% load static %}
+
+{% if question.hot %}
+    <div class="card mb-3 border-danger" style="max-width: 740px;">
+{% else %}
+    <div class="card mb-3 border-info" style="max-width: 740px;">
+{% endif %}
+    <div class="card-body">
+        <div class="row gx-2">
+            <div class="col-md-3 col-lg-2 text-center d-none d-md-block">
+                <img src="{% static 'images/test_avatar_1.jpg' %}" class="question-card-img d-md-block d-none" alt="">
+                <p class="text-secondary m-0 d-block"><b>{{ question.author }}</b></p>
+                <div class="btn-group btn-group-sm ">
+                    <button type="button" class="btn btn-outline-success">
+                        <i class="fa-regular fa-thumbs-up"></i> {{ question.likes_count }}
+                    </button>
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class="fa-regular fa-thumbs-down"></i> {{ question.dislikes_count }}
+                    </button>
+                </div>
+            </div>
+            <div class="col">
+                <h5 class="card-title">
+                    <a href="{% url 'questions:question' question.id %}" class="link link-secondary">
+                        <b>{{ question.title }}</b>
+                    </a>
+                </h5>
+                <p class="card-text">{{ question.body }}</p>
+                <p class="card-text"><small class="text-muted">{{ question.last_update }}</small></p>
+                <div class="row">
+                    <div class="col-4">
+                        <a href="#" class="card-text link-info">Ответы: {{ question.answers_count }}</a>
+                    </div>
+                    <div class="col-8">
+                        <p class="card-text d-inline text-secondary">Теги:</p>
+                        {% for tag in question.tags %}
+                            <a class="card-text link-info d-inline" href="{% url 'questions:list_with_tag' tag %}">{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer d-flex d-md-none justify-content-between align-items-center">
+        <div class="">
+            <img src="{% static 'images/test_avatar_1.jpg' %}" class="question-card-sm-img" alt="">
+            <p class="text-secondary d-inline"><b>Vanv1k</b></p>
+        </div>
+        <div class="btn-group btn-group-sm mr-0">
+            <button type="button" class="btn btn-outline-success">
+                <i class="fa-regular fa-thumbs-up"></i> 0
+            </button>
+            <button type="button" class="btn btn-outline-danger">
+                <i class="fa-regular fa-thumbs-down"></i> 0
+            </button>
+        </div>
+    </div>
+</div>
