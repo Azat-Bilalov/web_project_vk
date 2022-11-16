@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row">
+        {#  Вопрос и ответы  #}
+        <div class="col-lg-8 col-12">
+            {% include 'includes/page-question-card.html' %}
+            {% for answer in answers %}
+                {% include 'includes/answer-card.html' %}
+            {% endfor %}
+            {% if not closed %}{# Если ветка не закрыта #}
+                {% include 'includes/answer-form.html' %}
+            {% else %}
+                <hr />
+                <h3 class="text-center text-secondary fs-4">Обсуждение закрыто</h3>
+            {% endif %}
+        </div>
+        {# Правый блок #}
+        <div class="col-lg-4 col-12">
+            {% include 'includes/sidebar.html' %}
+        </div>
+    </div>
+{% endblock %}
